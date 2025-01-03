@@ -51,7 +51,7 @@ export function HowItWorksSection() {
         </div>
 
         {bullets.map((bullet, index) => (
-          <TypographyP className="max-w-2xl" size={"lg"}>
+          <TypographyP className="max-w-2xl" size={"lg"} key={index}>
             {bullet}
           </TypographyP>
         ))}

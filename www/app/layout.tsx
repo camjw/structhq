@@ -64,19 +64,6 @@ export default function RootLayout({
         src="https://plausible.io/js/script.js"
         defer
       />
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@100..900&family=Mogra&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
       <body className="min-h-screen antialiased overflow-x-hidden selection:text-white selection:bg-primary-9 font-geist">
         <Header />
         <main className="min-h-[calc(100dvh-3rem)] sm:min-h-[calc(100dvh-4rem)]">
