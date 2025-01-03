@@ -1,0 +1,17 @@
+{
+  "build": {
+    "env": {
+      "BUILD_TIMEOUT": "180"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/ingest/:match*",
+      "destination": "https://eu.posthog.com/:match*"
+    },
+    {
+      "source": "/decide/:match*",
+      "destination": "https://eu.i.posthog.com/decide/:match*"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+#! /usr/bin/env python3
+
+import os
+
+
+def main():
+    instructhqions = [
+        "supervisord -c /etc/supervisor/supervisord.conf",
+        "supervisorctl update all",
+        "uv run python manage.py collectstatic --noinput",
+        "uv run python manage.py makemigrations --check",
+        "uv run python manage.py migrate",
+        "uv run gunicorn --bind 0.0.0.0:10000 --capture-output --timeout 0 --workers 8 config.wsgi",
+    ]
+
+    for instructhqion in instructhqions:
+        return_code = os.system(instructhqion)
+
+        if return_code != 0:
+            print(f"Instructhqion {instructhqion} failed with return code {return_code}")
+            exit(return_code)
+
+
+if __name__ == "__main__":
+    main()

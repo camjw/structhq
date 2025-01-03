@@ -1,0 +1,121 @@
+.ProseMirror > * + * {
+  margin-top: 0.75em;
+}
+
+.ProseMirror {
+  --prose-mirror-placeholder-font-family: system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+
+  width: 100%;
+}
+
+/* Placeholder (at the top) */
+.ProseMirror p.is-empty::before {
+  opacity: 0.4 !important;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  font-family: var(--prose-mirror-placeholder-font-family);
+}
+
+.ProseMirror h1.is-empty::before {
+  content: "Heading";
+  color: #adb5bd;
+  float: left;
+  height: 0;
+  font-family: var(--prose-mirror-placeholder-font-family);
+}
+
+.ProseMirror h2.is-empty::before {
+  content: "Heading 2";
+  color: #adb5bd;
+  float: left;
+  height: 0;
+  font-family: var(--prose-mirror-placeholder-font-family);
+}
+
+.ProseMirror h3.is-empty::before {
+  content: "Heading 3";
+  color: #adb5bd;
+  float: left;
+  height: 0;
+  font-family: var(--prose-mirror-placeholder-font-family);
+}
+
+.ProseMirror h4.is-empty::before {
+  content: "Heading 4";
+  color: #adb5bd;
+  float: left;
+  height: 0;
+  font-family: var(--prose-mirror-placeholder-font-family);
+}
+
+.ProseMirror h5.is-empty::before {
+  content: "Heading 5";
+  color: #adb5bd;
+  float: left;
+  height: 0;
+  font-family: var(--prose-mirror-placeholder-font-family);
+}
+
+.ProseMirror h6.is-empty::before {
+  content: "Heading 6";
+  color: #adb5bd;
+  float: left;
+  height: 0;
+  font-family: var(--prose-mirror-placeholder-font-family);
+  font-weight: 600;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+
+.tiptap-task-item > label > input {
+  color: #4f46e5;
+  height: 1rem;
+  width: 1rem;
+  border: 1;
+  border-color: #d4d4d8;
+  border-radius: 0.25rem;
+}
+
+.tiptap-task-item > label > input:focus {
+  --tw-ring-color: transparent;
+}
+
+/* Give a remote user a caret */
+.collaboration-cursor__caret {
+  position: relative;
+  margin-left: -1px;
+  margin-right: -1px;
+  border-left: 1px solid #0d0d0d;
+  border-right: 1px solid #0d0d0d;
+  word-break: normal;
+  pointer-events: none;
+}
+
+/* Render the username above the caret */
+.collaboration-cursor__label {
+  position: absolute;
+  top: -1.4em;
+  left: -1px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  user-select: none;
+  color: #0d0d0d;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px 3px 3px 0;
+  white-space: nowrap;
+}
+
+/* Target the dragging of elements line */
+#rich_editor_container + div {
+  background-color: #c7d2fe !important;
+  height: 3px !important;
+}

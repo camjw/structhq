@@ -1,0 +1,26 @@
+import { CodeGroup } from '@/components/code'
+
+<CodeGroup tag="POST" label="/completions">
+
+```bash {{ title: 'cURL' }}
+curl https://api.structhq.com/completions?persona=$PERSONA_ID&profile=$PROFILE_ID \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $STRUCT_API_KEY" \
+  -d '{
+    "messages": [
+      {
+        "role": "system",
+        "content": """\
+          You are an experienced marketing professional with over 10 years experience.
+          {{ STRUCT_CONTEXT }}
+        """,
+      },
+      {
+        "role": "user",
+        "content": "Give me some ideas for relevant performance marketing campaigns?"
+      }
+    ]
+  }'
+```
+
+</CodeGroup>

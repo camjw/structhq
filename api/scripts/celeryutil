@@ -1,0 +1,101 @@
+#! /usr/bin/env python3
+
+# Should be run with poetry
+import os
+import sys
+
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
+import argparse
+import time
+from enum import Enum
+
+from config.celery import app as celery_app
+
+
+# TODO: probably should deprecate this and change it to a django management command so we can take advantage of django autoreload
+class Command(Enum):
+    start = "start"
+    stop = "stop"
+    status = "status"
+    restart = "restart"
+
+    def __str__(self):
+        return self.value
+
+
+parser = argparse.ArgumentParser(description="Util for managing supervisord/celery")
+parser.add_argument("command", type=Command, choices=list(Command))
+
+args = parser.parse_args()
+
+
+def _is_celery_running():
+    result = celery_app.control.ping(timeout=0.5)
+    return bool(result)  # True if at least one result
+
+
+def start():
+    if _is_celery_running():
+        return
+
+    log_files = ["./tmp/log/celerybeat.log", "./tmp/log/celeryworker.log"]
+
+    for log_file in log_files:
+        if os.path.exists(log_file):
+            open(log_file, "w").close()
+
+    instructhqions = [
+        "poetry run celery -A config beat -l INFO --detach --scheduler django_celery_beat.schedulers:DatabaseScheduler --logfile ./tmp/log/celerybeat.log",
+        "poetry run celery -A config worker -l INFO --detach --logfile ./tmp/log/celeryworker.log",
+        # "poetry run celery -A config flower -l INFO --detach --url-prefix=flower --logfile ./tmp/log/celeryflower.log",
+    ]
+
+    for instructhqion in instructhqions:
+        os.system(instructhqion)
+
+    for _ in range(120):
+        if _is_celery_running():
+            break
+        time.sleep(1)
+
+
+def stop():
+    if not _is_celery_running():
+        return
+
+    celery_app.control.shutdown()
+
+
+def status():
+    if _is_celery_running():
+        print("Celery is running")
+    else:
+        print("Celery is not running")
+
+
+def restart():
+    stop()
+    start()
+
+
+def main():
+    if args.command == Command.start:
+        start()
+        return
+
+    if args.command == Command.stop:
+        stop()
+        return
+
+    if args.command == Command.status:
+        status()
+        return
+
+    if args.command == Command.restart:
+        restart()
+        return
+
+
+if __name__ == "__main__":
+    main()

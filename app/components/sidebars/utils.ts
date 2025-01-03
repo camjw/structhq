@@ -1,0 +1,3 @@
+export const LEFT_SIDEBAR_WIDTH = 64;
+
+export const PREVIOUS_CHATS_SIDEBAR_WIDTH = 200;

@@ -1,0 +1,17 @@
+line-length = 180
+exclude = ["structhq/migrations/*"]
+
+[lint]
+ignore = [
+    # Unused import (sometimes needed for importing tasks)
+    "F401",
+    # "Unable to detect undefined names" (needed in 1 place for importing * from settings)
+    "F403",
+    # Ambiguous variable name (i.e. `i`, `l`, `o`)
+    "E741",
+]
+extend-select = [
+    # isort
+    "I",
+]
+exclude = ["structhq/migrations/*"]

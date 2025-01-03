@@ -1,0 +1,21 @@
+@layer base {
+  :root {
+    --shiki-color-text: theme("colors.blue.10");
+    --shiki-token-constant: theme("colors.blue.10");
+    --shiki-token-string: theme("colors.blue.10");
+    --shiki-token-comment: theme("colors.blue.10");
+    --shiki-token-keyword: theme("colors.blue.10");
+    --shiki-token-parameter: theme("colors.violet.10");
+    --shiki-token-function: theme("colors.violet.10");
+    --shiki-token-string-expression: theme("colors.blue.10");
+    --shiki-token-punctuation: theme("colors.blue.10");
+  }
+
+  [inert] ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

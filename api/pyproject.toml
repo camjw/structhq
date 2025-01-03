@@ -1,0 +1,82 @@
+[project]
+name = "structhq"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django>5.0",
+    "djangorestframework>=3.15.2",
+    "djangorestframework-camel-case>=1.4.2",
+    "djangorestframework-simplejwt>=5.3.1",
+    "redis>=5.0.8",
+    "psycopg2>=2.9.9",
+    "psycopg2-binary>=2.9.9",
+    "requests>=2.32.3",
+    "tqdm>=4.66.5",
+    "hiredis>=3.0.0",
+    "openai>=1.43.0",
+    "ipython>=8.18.1",
+    "notion-client>=2.2.1",
+    "boto3>=1.35.10",
+    "django-extensions>=3.2.3",
+    "nplusone>=1.0.0",
+    "django-stubs-ext>=5.0.4",
+    "json-fix>=1.0.0",
+    "django-cors-headers>=4.4.0",
+    "pyyaml>=6.0.2",
+    "django-redis>=5.4.0",
+    "pillow>=10.4.0",
+    "django-storages>=1.14.4",
+    "google-auth>=2.34.0",
+    "loguru>=0.7.2",
+    "tiktoken>=0.7.0",
+    "jsonschema>=4.23.0",
+    "pyhumps>=3.8.0",
+    "faker>=28.4.1",
+    "celery>=5.4.0",
+    "django-celery-beat>=2.7.0",
+    "django-celery-results>=2.5.1",
+    "watchdog[watchmedo]>=5.0.2",
+    "pydantic-core>=2.20.1",
+    "pydantic>=2.8.2",
+    "retry>=0.9.2",
+    "more-itertools>=10.5.0",
+    "blessings>=1.7",
+    "tblib>=3.0.0",
+    "model-bakery>=1.19.5",
+    "anthropic>=0.36.0",
+    "gunicorn>=23.0.0",
+    "drf-spectacular>=0.27.2",
+    "django-silk>=5.2.0",
+    "pandas>=2.2.3",
+    "bs4>=0.0.2",
+    "pypdf2>=3.0.1",
+    "python-docx>=1.1.2",
+    "zenpy>=2.0.56",
+    "workos>=5.5.0",
+    "playwright>=1.49.1",
+    "beautifulsoup4>=4.12.3",
+]
+
+[tool.uv]
+dev-dependencies = ["pytest>=8.3.2", "pytest-django>=4.8.0"]
+
+[tool.ruff]
+line-length = 180
+exclude = ["structhq/migrations/*"]
+
+[tool.ruff.lint]
+ignore = [
+    # Unused import (sometimes needed for importing tasks)
+    "F401",
+    # "Unable to detect undefined names" (needed in 1 place for importing * from settings)
+    "F403",
+    # Ambiguous variable name (i.e. `i`, `l`, `o`)
+    "E741",
+]
+extend-select = [
+    # isort
+    "I",
+]
+exclude = ["structhq/migrations/*"]

@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: Structhq API
+  version: 0.1.0
+  description: Structhq is the knowledge graph for internal LLM tools
+paths:
+  /completions/:
+    post:
+      operationId: completions_create
+      tags:
+        - completions
+      security:
+        - jwtAuth: []
+      responses:
+        "200":
+          description: No response body
+  /profiles/:
+    get:
+      operationId: profiles_retrieve
+      tags:
+        - profiles
+      security:
+        - jwtAuth: []
+      responses:
+        "200":
+          description: No response body
+components:
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,35 @@
+export const meta = {
+  title: "Security",
+};
+
+# Security, privacy and compliance
+
+Sonata’s data privacy and security practices adhere to rigorous enterprise standards, including our infrastructure, data policies and internal corporate processes.
+
+Sonata in in the process of achieving SOC 2 Type II certification in accordance with the  AICPA's Trust Service Criteria for Security, Confidentiality and Availability. Our security policies are supported by continuous vulnerability tests and regular audit exercises.
+
+Read more about Sonata's security practices and compliance measures below.
+
+## Infrastructure
+We use [Render](https://render.com) as our cloud provider. We use infrastructure physically located in the Ohio, USA. Render is SOC 2 Type II compliant.
+
+## Does Sonata backup data?
+Yes, we backup data daily and store it in a separate region.
+
+## Encryption
+Yes. Data is encrypted at rest (AES-256) and in transit (HTTPS/TLS).
+
+## Securing our cloud environment
+Access to our cloud services, source code, third-party tools etc. are secured with 2FA.
+
+## What are Sonata's practices for reacting to security incidents?
+We take security very seriously. We review security issues as soon as we learn about them. We let our users know if they are affected by any security incident.
+
+## Has Sonata deployed firewalls and intrusion detection and prevention systems in your environment?
+Our network is fully operated by Render which has a firewall and IDS/IPS running in their network.
+
+## How often is Sonata performing vulnerability scans and penetration tests on your own infrastructure?
+Sonata is using GitHub to store our source code. GitHub provides a vulnerability feed of issues that become known in third party software dependencies used by our source code. We also use a product called [Intruder.io](https://intruder.io) to perform automated vulnerability scans on our infrastructure. This happens weekly and we are notified of any issues.
+
+## Who should I reach out to if I have a security question about Sonata?
+If you notice a security issue or have a question or concern, you can reach out to us at [security@sonatahq.com](mailto:security@sonatahq.com) and we'll respond as soon as possible. Details on Sonata's bug bounty program can be found [here](/vulnerability-report).

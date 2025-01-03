@@ -1,0 +1,82 @@
+#! /usr/bin/env python3
+
+import argparse
+import os
+from enum import Enum
+
+from redis import Redis
+
+
+class Command(Enum):
+    start = "start"
+    stop = "stop"
+    status = "status"
+    restart = "restart"
+
+    def __str__(self):
+        return self.value
+
+
+parser = argparse.ArgumentParser(description="Util for managing local redis")
+parser.add_argument("command", type=Command, choices=list(Command))
+
+args = parser.parse_args()
+
+
+def _is_redis_running(redis_instance):
+    try:
+        redis_instance.ping()
+        return True
+    except Exception:
+        return False
+
+
+def start(redis_instance: Redis):
+    if _is_redis_running(redis_instance):
+        return
+
+    os.system("redis-server --daemonize yes")
+
+
+def stop(redis_instance: Redis):
+    if not _is_redis_running(redis_instance):
+        return
+
+    os.system("redis-cli shutdown")
+
+
+def status(redis_instance: Redis):
+    if _is_redis_running(redis_instance):
+        print("Redis is running")
+    else:
+        print("Redis is not running")
+
+
+def restart(redis_instance: Redis):
+    stop(redis_instance)
+    start(redis_instance)
+
+
+def main():
+    redis_host = "127.0.0.1"
+    redis_instance = Redis(redis_host, socket_connect_timeout=0.5)
+
+    if args.command == Command.start:
+        start(redis_instance)
+        return
+
+    if args.command == Command.stop:
+        stop(redis_instance)
+        return
+
+    if args.command == Command.status:
+        status(redis_instance)
+        return
+
+    if args.command == Command.restart:
+        restart(redis_instance)
+        return
+
+
+if __name__ == "__main__":
+    main()
