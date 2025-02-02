@@ -1,0 +1,72 @@
+---
+title: 'Create a new scraper'
+openapi: 'POST /scrapers/new'
+---
+
+This endpoint creates a new scraper. You pass a title, a list of test URLs and the JSON schema of the data you expect to get back from the scraper.
+
+This endpoint will return the scraper object to you, but the status of the scraper will be `compiling` until the scraper has been compiled and is ready to run. Compilation usually takes a few minutes, and you can check the status of the scraper by calling the `/scrapers/{scraper_id}` endpoint. During the compilation process we're using a load of LLMs to figure out the best way to scrape the data you're looking for.
+
+## Request structure
+
+The request body should be a JSON object with the following fields:
+
+- `title` (string): The title of the scraper.
+- `test_urls` (list of strings): A list of URLs that the scraper should be able to scrape.
+- `schema` (object): The JSON schema of the data you expect to get back from the scraper.
+
+For example:
+```json
+{
+  "title": "Net-a-Porter scraper",
+  "test_urls": [
+    "https://www.net-a-porter.com/en-gb/shop/product/veronica-beard/clothing/midi/louise-faux-leather-midi-skirt/1647597355019880",
+    "https://www.net-a-porter.com/en-gb/shop/product/gianvito-rossi/shoes/ankle/85-suede-ankle-boots/1647597286978314",
+  ],
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+        "description": "The name of the product"
+      },
+      "brand": {
+        "type": "string"
+        "description": "The brand of the product"
+      },
+      "price": {
+        "type": "number"
+        "description": "The price of the product"
+      },
+      "currency": {
+        "type": "string"
+        "description": "The currency of the price"
+      }
+      "main_image_url": {
+        "type": "string"
+        "description": "The URL of the main image of the product"
+      }
+    },
+    "required": ["name", "brand", "price", "currency", "main_image_url"]
+  }
+}
+```
+
+Be descriptive in your schema because this is seen by the LLMs during the compilation process and will help them figure out the best way to scrape the data you're looking for.
+
+## Response
+
+The response body will be a JSON object with the following fields:
+
+- `id` (string): The ID of the scraper.
+- `title` (string): The title of the scraper.
+- `status` (string): The status of the scraper, which is one of `compiling`, `ready`, `failed`, `healing`.
+
+For example:
+```json
+{
+  "id": "fcbfda97-4375-49a5-aab6-aa9cf18dcbd5",
+  "title": "Net-a-Porter scraper",
+  "status": "compiling"
+}
+```

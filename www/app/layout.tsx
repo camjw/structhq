@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Script
-        data-domain="structhq.com"
+        data-domain="sonatahq.com"
         src="https://plausible.io/js/script.js"
         defer
       />

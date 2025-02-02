@@ -19,7 +19,7 @@ const benefits: Benefit[] = [
   {
     title: "Enrich LLMs with real-time knowledge",
     description: [
-      "LLMs are powerful, but they need to understand your business to be useful. Struct provides that context.",
+      "LLMs are powerful, but they need to understand your business to be useful. Sonata provides that context.",
       "Knowing your organization's goals, structure, and terminology makes LLMs more effective and easier to use.",
     ],
     icon: Dataflow03Icon,
@@ -27,7 +27,7 @@ const benefits: Benefit[] = [
   {
     title: "Maintain context and personal memory between tools",
     description: [
-      "Every human user has their own Struct profile, which can be shared with any internal tool.",
+      "Every human user has their own Sonata profile, which can be shared with any internal tool.",
       "No need to retrain models or re-enter information. If one tool knows about your quarterly goals, they all do - automatically.",
     ],
     icon: User01Icon,
@@ -35,8 +35,8 @@ const benefits: Benefit[] = [
   {
     title: "Consistency with a single source of truth",
     description: [
-      "Struct's knowledge graph spans your entire organization, providing a comprehensive foundation for adoption.",
-      "Building useful tools on top of Struct is easy, because they all share the same knowledge.",
+      "Sonata's knowledge graph spans your entire organization, providing a comprehensive foundation for adoption.",
+      "Building useful tools on top of Sonata is easy, because they all share the same knowledge.",
     ],
     icon: BookOpen02Icon,
   },

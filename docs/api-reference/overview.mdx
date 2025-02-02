@@ -1,0 +1,27 @@
+---
+title: 'Getting started with Sonata'
+description: 'Creating scrapers and schedules with the Sonata API'
+---
+
+The Sonata API lets you create scrapers and schedules programmatically. Creating a scraper involved a reasonable amount of LLM usage, so takes a few minutes to compile. Once compiled, you can create a schedule to scrape data from a list of URLs and send the data to a webhook.
+
+The Sonata API uses API keys for authentication.
+
+## Creating an API key
+
+To create an API key, go to `Settings` > `API`. You can create as many API keys as you want, and use this key to authenticate your API requests.
+
+<img height="200" src="/images/api_token_create.png" style={{
+    borderRadius: '0.5rem',
+    border: '1px solid rgba(0, 0, 0, 0.1)',
+}} />
+
+## Authentication
+
+All API endpoints are authenticated using the `sonata-api-key` header. To authenticate your requests, include the following header in your request:
+
+```
+Authorization: Bearer ${sonata-api-key}
+```
+
+Where `${sonata-api-key}` is your API key.

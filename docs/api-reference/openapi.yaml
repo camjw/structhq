@@ -1,0 +1,142 @@
+openapi: 3.0.3
+info:
+  title: Sonata API
+  version: 0.1.0
+  description: Sonata is a platform for building and running self-healing delarative web scrapers.
+paths:
+  /scraper/new:
+    post:
+      operationId: scraper_create
+      description: Create a new scraper by passing a list of URLs to test on and a JSON schema for the data you expect to extract.
+      parameters:
+        - in: query
+          name: persona_id
+          schema:
+            type: string
+          description: The ID of the persona that you want to interact with.
+          required: true
+          style: form
+        - in: query
+          name: profile_id
+          schema:
+            type: string
+          description:
+            The ID of the profile (or human) that is interacting with the
+            Persona. This is optional, and used to populate the short term context for
+            the Persona.
+          style: form
+        - in: header
+          name: sonata-api-key
+          schema:
+            type: string
+          description:
+            Your API key. This is required by all endpoints to access our
+            API programatically. You can view your API keys using the 'API' tab in the
+            settings page.
+          required: true
+      tags:
+        - completions
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Scraper"
+          description: ""
+  /schedule/new:
+    get:
+      operationId: profiles_retrieve
+      description: Retrieve a profile by email address or ID
+      parameters:
+        - in: query
+          name: email
+          schema:
+            type: string
+          description:
+            The email address of the profile to retrieve. Either `email`
+            or `id` is required.
+          explode: false
+          style: form
+        - in: query
+          name: id
+          schema:
+            type: string
+          description:
+            The ID of the profile to retrieve. Either `email` or `id` is
+            required.
+          explode: false
+          style: form
+        - in: header
+          name: sonata-api-key
+          schema:
+            type: string
+          description:
+            Your API key. This is required by all endpoints to access our
+            API programatically. You can view your API keys using the 'API' tab in the
+            settings page.
+          required: true
+      tags:
+        - profiles
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfilePublic"
+          description: ""
+components:
+  schemas:
+    ProfilePublic:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The unique identifier of the profile.
+        workspace:
+          type: string
+          format: uuid
+          description:
+            The unique identifier of the workspace. This will be the same
+            for all of your profiles.
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the profile was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: The date and time the profile was last updated.
+        full_name:
+          type: string
+          description: This profile's full name.
+        preferred_name:
+          type: string
+          description: What this profile likes to be called.
+        job_title:
+          type: string
+          description: This profile's job title. This is set in the Sonata UI.
+        responsibilities:
+          type: string
+          description:
+            This profile's responsibilities. This is set in the Sonata
+            UI.
+        goals:
+          type: string
+          description: This profile's goals. This is set in the Sonata UI.
+        teams:
+          type: array
+          items:
+            type: string
+          description:
+            The teams that this profile is a member of. Your knowledge
+            graph can be filtered to only show facts relevant to these teams.
+      required:
+        - created_at
+        - id
+        - teams
+        - updated_at
+        - workspace
+servers:
+  - url: https://api.sonatahq.com
+    description: Sonata API

@@ -1,0 +1,28 @@
+---
+title: 'Get scraper'
+openapi: 'GET /scrapers/{scraper_id}'
+---
+
+This endpoint gets a scraper by ID. This is mostly useful to check the status of a scraper.
+
+## Request structure
+
+The request should be a GET request to `/scrapers/{scraper_id}` where `scraper_id` is the ID of the scraper you want to get.
+
+
+## Response
+
+The response body will be a JSON object with the following fields:
+
+- `id` (string): The ID of the scraper.
+- `title` (string): The title of the scraper.
+- `status` (string): The status of the scraper, which is one of `compiling`, `ready`, `failed`, `healing`.
+
+For example:
+```json
+{
+  "id": "fcbfda97-4375-49a5-aab6-aa9cf18dcbd5",
+  "title": "Net-a-Porter scraper",
+  "status": "compiling"
+}
+```

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Sonata",
+  "logo": {
+    "light": "/logo/sonata_logotype_light.svg",
+    "dark": "/logo/sonata_logotype_dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#3E63DD",
+    "light": "#3E63DD",
+    "dark": "#3E63DD",
+    "anchors": {
+      "from": "#3E63DD",
+      "to": "#3E63DD"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Blog",
+      "url": "https://sonatahq.com/blog"
+    },
+    {
+      "name": "Go to Sonata",
+      "url": "https://app.sonatahq.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Book a demo",
+    "url": "https://app.sonatahq.com"
+  },
+  "primaryTab": {
+    "name": "Home"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Home",
+      "pages": ["home"]
+    },
+    {
+      "group": "API Reference",
+      "pages": ["api-reference/overview"]
+    },
+    {
+      "group": "Scrapers",
+      "pages": [
+        "api-reference/endpoint/create_scraper",
+        "api-reference/endpoint/get_scraper"
+      ]
+    },
+    {
+      "group": "Schedules",
+      "pages": ["api-reference/endpoint/create_schedule"]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/sonatahq",
+    "linkedin": "https://www.linkedin.com/company/sonatahq"
+  }
+}

@@ -49,8 +49,8 @@ const features: Array<Feature> = [
   {
     name: `4. ${COMPANY_NAME} heals the scrapers`,
     description: [
-      "After each interaction, Struct records the new information it has learned.",
-      "This information is used to improve the knowledge graph, and the personas, making all of your tools more powerful over time. Struct also learns about individual humans, making it more effective at helping them.",
+      "After each interaction, Sonata records the new information it has learned.",
+      "This information is used to improve the knowledge graph, and the personas, making all of your tools more powerful over time. Sonata also learns about individual humans, making it more effective at helping them.",
     ],
     visual: LearnedFactImage,
   },
@@ -59,7 +59,7 @@ const features: Array<Feature> = [
 function FactsImage() {
   return (
     <div className="py-2 bg-white rounded-xl border-gray-4 border shadow-lg">
-      <Image src={factsImage} alt="Struct facts" />
+      <Image src={factsImage} alt="Sonata facts" />
     </div>
   );
 }
@@ -67,7 +67,7 @@ function FactsImage() {
 function PersonasImage() {
   return (
     <div className="overflow-hidden rounded-xl border-gray-4 border shadow-lg">
-      <Image src={personasImage} alt="Struct personas" />
+      <Image src={personasImage} alt="Sonata personas" />
     </div>
   );
 }
@@ -75,7 +75,7 @@ function PersonasImage() {
 function LearnedFactImage() {
   return (
     <div className="overflow-hidden rounded-xl border-gray-4 border shadow-lg">
-      <Image src={learnedFactImage} alt="Struct learned fact" />
+      <Image src={learnedFactImage} alt="Sonata learned fact" />
     </div>
   );
 }
@@ -83,7 +83,7 @@ function LearnedFactImage() {
 function CodeImage() {
   return (
     <div className="overflow-hidden rounded-xl border-gray-4 border shadow-lg">
-      <Image src={codeImage} alt="Struct code snippet" />
+      <Image src={codeImage} alt="Sonata code snippet" />
     </div>
   );
 }

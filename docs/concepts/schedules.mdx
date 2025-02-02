@@ -1,0 +1,31 @@
+---
+title: 'Schedules'
+description: 'The basic elements of your knowledge graph.'
+icon: 'calendar-days'
+---
+
+Facts are the raw pieces of information that Sonata uses to build you knowledge graph. They have a few key properties:
+- **Content**: The actual substance of the fact.
+- **Source**: Where the fact came from.
+- **Mentioned Entities**: Any entities (i.e. profiles or teams) mentioned in the fact.
+- **Category**: The type of fact it is (e.g. document, chat message, etc.)
+
+
+<img height="200" src="/images/example_fact.png" style={{
+    borderRadius: '0.5rem',
+    border: '1px solid rgba(0, 0, 0, 0.1)',
+}} />
+
+## Creating Facts
+
+Facts are created in three main ways: 
+1. **Manually**: You can create facts manually in the Sonata UI.
+2. **From conversations**: When you call the `/completion` endpoint, Sonata will automatically parse out all the facts it thinks are relevant and new from the conversation and add them to the knowledge graph.
+3. **From documents**: You can upload documents to Sonata, and it will automatically extract the facts from them.
+
+
+## Categories
+
+Sonata will automatically categorize facts based on their content, and create new categories when it thinks they are necessary. You can also manually categorize facts if you want to group them together. 
+
+Categories are a key way to restrict access to the knowledge graph when creating personas. For example, you might want to create a persona that only has access to facts in the "HR" category.

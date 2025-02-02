@@ -32,7 +32,7 @@ export function BrandingLogo({ size, className }: BrandingLogoProps) {
       src={COMPANY_LOGO_SVG}
       // loader={({ src }) => src}
       unoptimized={true}
-      alt="Struct"
+      alt="Sonata"
       priority={true}
       className={cn(brandingLogoVariants({ size }), className)}
     />
@@ -46,7 +46,7 @@ export function BrandingLogoType({ size, className }: BrandingLogoProps) {
         src={COMPANY_LOGO_SVG}
         loader={({ src }) => src}
         unoptimized={true}
-        alt="Struct"
+        alt="Sonata"
         priority={true}
         className={cn(brandingLogoVariants({ size }), className)}
       />

@@ -41,7 +41,7 @@ export default function ComingSoonSection() {
                 asChild
                 className="!bg-white !text-gray-12 rounded-full !shadow-md"
               >
-                <Link href={"https://app.structhq.com/"}>
+                <Link href={"https://app.sonatahq.com/"}>
                   <ArrowRightIcon className="w-5 h-5 text-white bg-gray-11 rounded-full p-[3px] -ml-2" />
                   Sign in
                 </Link>

@@ -1,0 +1,15 @@
+---
+title: Welcome to Sonata
+description: 'Get the most out of Sonata with these resources'
+---
+
+Sonata is a platform for building declarative web scrapers. It uses LLMs to figure out the best way to scrape the data you're looking for, and then lets you schedule runs to use the scraper on a list of URLs and send the data to a webhook.
+
+When you create a scraper, we compile the test URLs you provide and the data schema that you're looking for into a block of python code using LLMs. This process usually takes a few minutes, and you can check the status of the scraper by calling the `/scrapers/{scraper_id}` endpoint.
+
+## Concepts
+
+The key concepts in Sonata are:
+
+1. **Scrapers**: These are the raw pieces of information that Sonata ingests. They can be anything from a document to a chat message.
+2. **Schedules**: These are a portion of your knowledge graph with an LLM some additional metadata, and are the way you interact with your knowledge graph.

@@ -12,9 +12,9 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-primary-9 text-white hover:bg-primary-10 disabled:bg-primary-7 disabled:text-primary-3 focus-visible:ring-primary-9 border border-primary-10 disabled:border-primary-7 shadow-sm",
-        destructive:
+        desonataive:
           "bg-red-9 text-white hover:bg-red-11 disabled:bg-red-7 disabled:text-red-2 focus-visible:ring-red-9 border border-transparent",
-        destructiveOutline:
+        desonataiveOutline:
           "border border-gray-4 bg-white hover:bg-red-3 hover:border-red-4 text-red-10 disabled:bg-red-4 disabled:text-red-8 disabled:border-red-4 focus-visible:ring-red-8/40 focus-visible:ring-[3px] focus-visible:border-red-8",
         outline:
           "border border-gray-4 bg-white hover:bg-gray-3 text-gray-12 disabled:bg-gray-4 disabled:text-gray-8 disabled:border-gray-4 shadow-sm",

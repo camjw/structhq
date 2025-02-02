@@ -10,13 +10,17 @@ export function CTA() {
         <TypographyH2 size={"xl"}>
           <span className="text-primary-10">Declarative</span> web scraping
         </TypographyH2>
-        <TypographyH2 size={"lg"} className="text-gray-11 font-normal">
-          With no more maintenance
+        <TypographyH2
+          size={"lg"}
+          className="text-gray-11 font-normal max-w-2xl text-center"
+        >
+          Let Sonata build and maintain your scrapers, so you can focus on the
+          data.
         </TypographyH2>
       </div>
       <Button asChild size={"hero"}>
         <a href={COMPANY_DEMO_FORM_URL}>
-          <span className="px-0.5 text-2xl font-medium">Get started</span>
+          <span className="px-0.5 text-4xl font-medium">Get started</span>
         </a>
       </Button>
     </div>

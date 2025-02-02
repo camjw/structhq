@@ -65,7 +65,7 @@ export const CookieToast = () => {
   return (
     <>
       <Script
-        data-domain="structhq.com"
+        data-domain="sonatahq.com"
         src="https://plausible.io/js/script.js"
         defer
       />

@@ -10,7 +10,7 @@ const typographyH2Variants = cva("font-medium font-geist", {
     size: {
       default: "text-xl sm:text-2xl",
       medium: "text-xl sm:text-2xl xl:text-4xl",
-      lg: "text-3xl xs:text-4xl md:text-[80px] lg:text-6xl tracking-tight !leading-[1.125]",
+      lg: "text-3xl xs:text-4xl md:text-[80px] lg:text-5xl tracking-tight !leading-[1.125]",
       xl: "text-3xl xs:text-4xl md:text-[80px] lg:text-7xl tracking-tight !leading-[1.125]",
     },
   },

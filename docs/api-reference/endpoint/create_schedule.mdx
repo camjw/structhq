@@ -1,0 +1,68 @@
+---
+title: 'Create schedule'
+openapi: 'POST /schedule/new'
+---
+
+This endpoint let's you create a schedule with a scraper, a title, a cron expression, a list of URLs which the scraper should scrape, and a list of webhooks which the data should be send to.
+
+This endpoint will return the schedule object to you, which is just an id and the data that you passed in. You can see the results of all previous schedules in the Sonata UI (an API endpoint for this is coming soon).
+
+You can download CSVs or JSON files of the scraped data from the Sonata UI, as well as getting it send to a webhook.
+
+## Webhooks
+
+When the schedule completes, the scraped data will be sent to the webhook you specified in the request body. The data will be sent as a JSON object with the following fields:
+
+- `id` (string): The ID of the schedule.
+- `data` (list of objects): The scraped data.
+
+The data will be sent as a POST request. If the webhook returns a 200 status code, the schedule will be marked as complete. If the webhook returns a 500 status code, the schedule will be marked as failed.
+
+The webhook request will have the `Authorization` header set to `Bearer ${sonata-webhook-key}` where `sonata-webhook-key` is your webhook key that you can find in the settings section of the Sonata UI.
+
+## Request structure
+
+The request body should be a JSON object with the following fields:
+
+- `title` (string): The title of the schedule.
+- `scraper_id` (string): The ID of the scraper you want to use.
+- `cron_expression` (string): The cron expression for the schedule.
+- `urls` (list of strings): A list of URLs that the scraper should scrape.
+
+For example:
+```json
+{
+  "title": "Net-A-Porter daily scrape",
+  "scraper_id": "fcbfda97-4375-49a5-aab6-aa9cf18dcbd5",
+  "cron_expression": "0 0 0 * * *",
+  "urls": [
+"https://www.net-a-porter.com/en-gb/shop/product/stella-mccartney/clothing/gowns/asymmetric-cape-effect-stretch-satin-gown/1647597350512993"
+    ...
+  ],
+  "webhook": "https://my-webhook.com"
+}
+```
+
+## Response
+
+The response body will be a JSON object with the following fields:
+
+- `id` (string): The ID of the schedule.
+- `title` (string): The title of the schedule.
+- `scraper_id` (string): The ID of the scraper.
+- `cron_expression` (string): The cron expression for the schedule.
+- `urls` (list of strings): A list of URLs that the scraper should scrape.
+
+For example:
+```json
+{
+  "id": "3e97e464-8ba0-47aa-ada6-9ad9d722bc89",
+  "title": "Net-A-Porter daily scrape",
+  "scraper_id": "fcbfda97-4375-49a5-aab6-aa9cf18dcbd5",
+  "cron_expression": "0 0 0 * * *",
+  "urls": [
+    "https://www.net-a-porter.com/en-gb/shop/product/stella-mccartney/clothing/gowns/asymmetric-cape-effect-stretch-satin-gown/1647597350512993"
+    ...
+  ]
+}
+```

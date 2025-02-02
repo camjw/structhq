@@ -47,7 +47,7 @@ const benefits: Benefit[] = [
     icon: FastForwardIcon,
   },
   {
-    title: `4. ${COMPANY_NAME} maintains the scrapers`,
+    title: `4. ${COMPANY_NAME} scrapers self-heal`,
     description: [
       "If the scraper fails to find the data on a subsequent run it’ll self-heal by updating its internal code, and explain to you what went wrong.",
       "No more maintenance, no more annoying broken scrapers, no more wasted time.",
